@@ -1,0 +1,144 @@
+@import "./../../common/styles/tamplates.scss";
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+  background-color: #0e0e0e;
+}
+
+.calendar {
+  width: 300px;
+  padding: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e1e1e1;
+  background-color: #1f1f1f;
+  border: 1px solid #7f7f7f;
+  border-radius: 30px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__info {
+    margin-bottom: 1rem;
+
+    p {
+      margin: 0 0 0.4rem 0.625rem;
+    }
+
+    p:nth-of-type(1) {
+      cursor: default;
+      font-size: 46px;
+      font-weight: 100;
+    }
+
+    p:nth-of-type(2) {
+      font-size: 14px;
+      color: #00dd00;
+    }
+  }
+
+  hr {
+    width: 100%;
+    border-color: #4f4f4f;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 15px;
+
+    h2 {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      color: #7f7f7f;
+      cursor: pointer;
+
+      &:hover {
+        color: #929292;
+      }
+    }
+  }
+
+  &__weekdays {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-weight: bold;
+    cursor: default;
+
+    .calendar__weekday:nth-of-type(even) {
+      color: #b9e1ad;
+    }
+  }
+
+  &__weekday {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  &__day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    border: 2px solid #1f1f1f;
+    font-size: 14px;
+    cursor: default;
+    transition: background-color 0.3s ease;
+
+    &.current__day {
+      background-color: #00b800;
+      position: relative;
+      color: white;
+      font-weight: bold;
+      border-width: 0px;
+
+      &:hover {
+        border-radius: 0px;
+        &:before {
+          border-color: #00ec00;
+        }
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4.5px;
+
+        border: {
+          width: 2.5px;
+          style: solid;
+          color: #00b800;
+          radius: 3px;
+        }
+      }
+    }
+
+    &.other__month {
+      color: #5c5c5c;
+    }
+
+    &:hover {
+      @extend %border;
+    }
+  }
+}
