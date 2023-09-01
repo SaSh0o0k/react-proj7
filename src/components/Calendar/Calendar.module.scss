@@ -108,21 +108,23 @@ body {
       color: white;
       font-weight: bold;
       border-width: 0px;
+      top: 1px;
 
       &:hover {
-        border-radius: 0px;
+      border-radius: 2px;
         &:before {
+          border-radius: 5px;
           border-color: #00ec00;
         }
       }
 
       &:before {
-        content: "";
+      content: "";
         position: absolute;
         top: -4px;
         left: -4px;
         right: -4px;
-        bottom: -4.5px;
+        bottom: -4px;
 
         border: {
           width: 2.5px;

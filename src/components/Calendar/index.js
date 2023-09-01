@@ -83,7 +83,7 @@ function Calendar() {
           const isToday =
             selectedYear === new Date().getFullYear() &&
             selectedMonth === new Date().getMonth() &&
-            day.getDate() === new Date().getDate();
+            dayIndex === new Date().getDate();
 
           return (
             <div
